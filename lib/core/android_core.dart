@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:todolist_flutter/pages/sign_in/login_page.dart';
+import 'package:todolist_flutter/pages/sign_in/base_sign_in_page.dart';
 import '../theme/theme.dart' as mythemeclass;
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 title: 'Minha lista de tarefas',
                 theme: mythemeclass.defaultTheme(),
-                home: const LoginPage());
+                home: const BaseSignInPage());
           } else {
             return MaterialApp(
               debugShowCheckedModeBanner: false,

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:todolist_flutter/pages/sign_in/components/forms_login.dart';
 
 class ComponentLogin extends StatelessWidget {
-  const ComponentLogin({ Key? key }) : super(key: key);
+  const ComponentLogin({ Key? key, required this.switchPages }) : super(key: key);
+  final VoidCallback? switchPages;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ComponentLogin extends StatelessWidget {
           )),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: _height*0.06),
-            child: const FormsLogin(),
+            child: FormsLogin(onSignUpPressed: switchPages,),
           ),
           const SizedBox()
 

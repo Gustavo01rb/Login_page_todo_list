@@ -16,7 +16,7 @@ class DefaultFormField extends StatefulWidget {
     this.obscure = false,
     this.leftPadding = 5,
     this.sapacingValue = 10,
-    this.radiusValue = 16,
+    this.radiusValue = 8,
     this.suffixIcon,
     this.prefixIcon,
     this.validator,

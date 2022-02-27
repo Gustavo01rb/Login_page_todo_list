@@ -17,11 +17,17 @@ class _LoginPageState extends State<BaseSignInPage>
     with SingleTickerProviderStateMixin {
   late AnimationSigninPage _animationClassController;
 
+ 
+
   @override
   void initState() {
     super.initState();
     _animationClassController = AnimationSigninPage(this);
     _animationClassController.animationControllerInit.forward();
+  }
+   Future<void> _switchPages()async{
+      await _animationClassController.animationControllerInit.reverse();
+      await _animationClassController.animationControllerInit.forward();
   }
 
   @override
@@ -34,14 +40,14 @@ class _LoginPageState extends State<BaseSignInPage>
           alignment: Alignment.center,
           child: AnimatedBuilder(
               animation: _animationClassController.animationControllerInit,
-              builder: (context, widget) {
+              builder: (context, widgets) {
                 return Column(
                   children: <Widget>[
                     AnimatedLogo(animationClassController: _animationClassController),
-                    const Expanded(
+                    Expanded(
                         child: ContainerTopRounded(
                           width: double.infinity,
-                          child: ComponentLogin(),
+                          child: ComponentLogin(switchPages: _switchPages,),
                         ))
                   ],
                 );

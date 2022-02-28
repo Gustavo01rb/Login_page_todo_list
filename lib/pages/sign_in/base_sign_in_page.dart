@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todolist_flutter/pages/sign_in/aniamtion.dart';
 import 'package:todolist_flutter/pages/sign_in/components/animated_logo.dart';
-import 'package:todolist_flutter/pages/sign_in/components/component_login.dart';
+import 'package:todolist_flutter/pages/sign_in/components/sign_in/component_login.dart';
+import 'package:todolist_flutter/pages/sign_in/components/sign_up/component_sign_up.dart';
 import 'package:todolist_flutter/services/service_sign_in.dart';
 import 'package:todolist_flutter/shared/containers/container_top_rounded.dart';
 import 'package:provider/provider.dart';
@@ -25,14 +26,15 @@ class _LoginPageState extends State<BaseSignInPage>
     _animationClassController = AnimationSigninPage(this);
     _animationClassController.animationControllerInit.forward();
   }
-   Future<void> _switchPages()async{
+   Future<void> _switchPages(BuildContext context)async{
       await _animationClassController.animationControllerInit.reverse();
+      context.read<ServiceSignIn>().switchPage();
       await _animationClassController.animationControllerInit.forward();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (context) => ServiceSignIn(),
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -47,7 +49,9 @@ class _LoginPageState extends State<BaseSignInPage>
                     Expanded(
                         child: ContainerTopRounded(
                           width: double.infinity,
-                          child: ComponentLogin(switchPages: _switchPages,),
+                          child: Provider.of<ServiceSignIn>(context, listen: false).isLogin
+                          ? ComponentSignUp(switchPages: () => _switchPages(context),)
+                          : ComponentLogin(switchPages: () => _switchPages(context),),
                         ))
                   ],
                 );

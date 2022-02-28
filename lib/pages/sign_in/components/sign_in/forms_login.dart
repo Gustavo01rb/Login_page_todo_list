@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todolist_flutter/shared/buttons/button_large.dart';
+import 'package:provider/provider.dart';
+import 'package:todolist_flutter/services/service_sign_in.dart';
+import 'package:todolist_flutter/shared/buttons/default_button.dart';
 import 'package:todolist_flutter/shared/dividers/or_divider.dart';
 import 'package:todolist_flutter/shared/forms/default_form_with_text.dart';
 import 'package:todolist_flutter/theme/icons.dart';
@@ -22,12 +24,14 @@ class _FormsLoginState extends State<FormsLogin> {
           DefaultFormFieldWithText(
             titleText: "Nome de usuário",
             hint: "ex: Chapolin_123",
+            controller: Provider.of<ServiceSignIn>(context, listen: false).controllerUserName,
             leftPadding: 20,
             icon: ProjectIcons().person,
           ),
           const SizedBox(height: 20,),
            DefaultFormFieldWithText(
             titleText: "Senha",
+            controller: Provider.of<ServiceSignIn>(context, listen: false).controllerPassword,
             icon: ProjectIcons().key,
             obscure: !_passwordVisible,
             suffixIcon: IconButton(
@@ -41,9 +45,9 @@ class _FormsLoginState extends State<FormsLogin> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 20),
-            child: ButtonLarge(
+            child: DefaultButton(
               text: "Entrar",
-              onPressed: (){debugPrint("Apertou");},
+              onPressed: (){},
             ),
           ),
           const Padding(
@@ -52,7 +56,7 @@ class _FormsLoginState extends State<FormsLogin> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: ButtonLarge(
+            child: DefaultButton(
               text: "Cadastre-se",
               color: Theme.of(context).colorScheme.primary,
               onPressed: widget.onSignUpPressed,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist_flutter/pages/sign_in/components/forms_login.dart';
+import 'package:todolist_flutter/pages/sign_in/components/sign_in/forms_login.dart';
 
 class ComponentLogin extends StatelessWidget {
   const ComponentLogin({ Key? key, required this.switchPages }) : super(key: key);

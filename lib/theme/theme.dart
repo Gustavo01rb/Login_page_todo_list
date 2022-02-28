@@ -27,4 +27,8 @@ ThemeData defaultTheme() => ThemeData(
     bodyText2:  TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
     
   ),
+  iconTheme: IconThemeData(
+    color: ProjectColors().darkPrimary,
+    size: 25
+  )
 );

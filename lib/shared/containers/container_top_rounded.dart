@@ -6,19 +6,28 @@ class ContainerTopRounded extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.maxWidth = double.infinity,
+    this.maxHeght = double.infinity,
     this.radius = 30,
-    this.child 
+    this.child,
+
   }) : super(key: key);
   
   final double? width;
   final double? height;
   final Color?  color;
   final double  radius;
+  final double  maxWidth;
+  final double  maxHeght; 
   final Widget? child;
 
   @override 
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(
+        maxWidth: maxWidth,
+        maxHeight: maxHeght
+      ),
       clipBehavior: Clip.hardEdge,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       width: width,

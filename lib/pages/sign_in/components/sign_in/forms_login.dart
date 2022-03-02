@@ -4,6 +4,7 @@ import 'package:todolist_flutter/services/service_sign_in.dart';
 import 'package:todolist_flutter/shared/buttons/default_button.dart';
 import 'package:todolist_flutter/shared/dividers/or_divider.dart';
 import 'package:todolist_flutter/shared/forms/default_form_with_text.dart';
+import 'package:todolist_flutter/shared/forms/validators.dart';
 import 'package:todolist_flutter/theme/icons.dart';
 
 class FormsLogin extends StatefulWidget {
@@ -23,6 +24,7 @@ class _FormsLoginState extends State<FormsLogin> {
         children: [
           DefaultFormFieldWithText(
             titleText: "Nome de usuário",
+            validator: FormsValidators().validateUserName,
             hint: "ex: Chapolin_123",
             controller: Provider.of<ServiceSignIn>(context, listen: false).controllerUserName,
             leftPadding: 20,
@@ -31,6 +33,7 @@ class _FormsLoginState extends State<FormsLogin> {
           const SizedBox(height: 20,),
            DefaultFormFieldWithText(
             titleText: "Senha",
+            validator: FormsValidators().validatePassword,
             controller: Provider.of<ServiceSignIn>(context, listen: false).controllerPassword,
             icon: ProjectIcons().key,
             obscure: !_passwordVisible,

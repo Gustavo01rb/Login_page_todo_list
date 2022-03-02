@@ -25,7 +25,7 @@ class ComponentSignUp extends StatelessWidget {
         ),
          Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: _height*0.06),
-            child: FormSignUp()
+            child: const FormSignUp()
          )
       ]
     );

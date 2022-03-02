@@ -5,6 +5,7 @@ class AnimationSigninPage {
   late AnimationController animationControllerInit;
   late Animation<double> rotateIcon;
   late Animation<double> emergeContainer;
+  late Animation<double> emergeContainerSignup;
   late Animation<double> sizeLogo;
   late Animation<double> sizeLogoText;
 
@@ -20,6 +21,13 @@ class AnimationSigninPage {
     emergeContainer = Tween<double>(
       begin: 1, 
       end: 0.3
+    ).animate(
+        CurvedAnimation(
+          parent: animationControllerInit, 
+          curve: const Interval(0.7, 1, curve: Curves.easeOutBack)));
+    emergeContainerSignup = Tween<double>(
+      begin: 1, 
+      end: 0.2
     ).animate(
         CurvedAnimation(
           parent: animationControllerInit, 

@@ -102,12 +102,14 @@ class _DefaultFormFieldWithTextState extends State<DefaultFormFieldWithText> {
                 icon: widget.icon != null ? IconButton(
                   icon: Icon(
                     widget.icon,
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(context).iconTheme.color,
                     size: 30,
                   ),
                   onPressed: widget.onPressedIcon,
                 ) : null,
                 errorText: widget.activateError ? widget.errorText : null,
+                errorMaxLines: 2,
+                
                 suffixIcon: widget.suffixIcon,
                 prefixIcon: widget.prefixIcon,
                 contentPadding: widget.maxLines == 1
@@ -128,7 +130,7 @@ class _DefaultFormFieldWithTextState extends State<DefaultFormFieldWithText> {
                   OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.radiusValue),
                     borderSide:
-                      BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 1)),
+                      BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 3)),
                 
                 errorBorder:
                   OutlineInputBorder(

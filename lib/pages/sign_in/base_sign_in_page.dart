@@ -48,6 +48,7 @@ class _LoginPageState extends State<BaseSignInPage>
                     AnimatedLogo(animationClassController: _animationClassController),
                     Expanded(
                         child: ContainerTopRounded(
+                          maxWidth: 1000,
                           width: double.infinity,
                           child: Provider.of<ServiceSignIn>(context, listen: false).isLogin
                           ? ComponentSignUp(switchPages: () => _switchPages(context),)

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:todolist_flutter/shared/forms/default_form.dart';
 
-class DefaultFormFieldWithText extends StatefulWidget {
-  const DefaultFormFieldWithText({ 
+class FormDefaultWithText extends StatefulWidget {
+  const FormDefaultWithText({ 
     Key? key,
     required this.titleText,
     this.label,
@@ -68,10 +69,10 @@ class DefaultFormFieldWithText extends StatefulWidget {
   final TextInputAction textInputAction;
 
   @override
-  _DefaultFormFieldWithTextState createState() => _DefaultFormFieldWithTextState();
+  _FormDefaultWithTextState createState() => _FormDefaultWithTextState();
 }
 
-class _DefaultFormFieldWithTextState extends State<DefaultFormFieldWithText> {
+class _FormDefaultWithTextState extends State<FormDefaultWithText> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -83,63 +84,35 @@ class _DefaultFormFieldWithTextState extends State<DefaultFormFieldWithText> {
         
         Padding(
           padding: const EdgeInsets.only(top: 5, left: 5),
-          child: TextFormField(
-            onSaved: widget.onSaved,
-            onTap: () => widget.onTap != null ? widget.onTap!() : null,
-            onEditingComplete: () => widget.onEditingComplete != null ? widget.onEditingComplete!() : null,
-            controller: widget.controller,
-            inputFormatters: widget.mask == null ? [] : [widget.mask!],
-            initialValue: widget.initialValue,
-            keyboardType: widget.textInputType,
-            textInputAction: widget.textInputAction,
+          child: FormDefault(
+            mask: widget.mask,
+            icon: widget.icon,
+            hint: widget.hint,
+            label: widget.label,
+            onTap: widget.onTap,
+            spacing: widget.spacing,
+            obscure: widget.obscure,
             enabled: widget.enabled,
-            obscureText: widget.obscure,
-              maxLines: widget.maxLines,
-              validator: widget.validator,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Theme.of(context).colorScheme.tertiaryContainer,
-                icon: widget.icon != null ? IconButton(
-                  icon: Icon(
-                    widget.icon,
-                    color: Theme.of(context).iconTheme.color,
-                    size: 30,
-                  ),
-                  onPressed: widget.onPressedIcon,
-                ) : null,
-                errorText: widget.activateError ? widget.errorText : null,
-                errorMaxLines: 2,
-                
-                suffixIcon: widget.suffixIcon,
-                prefixIcon: widget.prefixIcon,
-                contentPadding: widget.maxLines == 1
-                    ? EdgeInsets.only(left: widget.leftPadding)
-                    : const EdgeInsets.all(15),
-                labelText: widget.label,
-                hintText: widget.hint,
-                labelStyle: widget.textStyle /*?? ProjectTexts().inputText*/,
-                hintStyle: widget.textStyle /*?? ProjectTexts().inputText*/,
-                
-                enabledBorder: 
-                  OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radiusValue),
-                    borderSide:
-                      BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 1)),
-                
-                focusedBorder: 
-                  OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radiusValue),
-                    borderSide:
-                      BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 3)),
-                
-                errorBorder:
-                  OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radiusValue),
-                    borderSide:
-                    BorderSide(color: Theme.of(context).colorScheme.error, width: 1),
-                  ),
-                ),
-            ),
+            onSaved: widget.onSaved,
+            maxLines: widget.maxLines,
+            errorText: widget.errorText,
+            validator: widget.validator,
+            textStyle: widget.textStyle,
+            suffixIcon: widget.suffixIcon,
+            prefixIcon: widget.prefixIcon,
+            controller: widget.controller,
+            borderColor: widget.borderColor,
+            radiusValue: widget.radiusValue,
+            leftPadding: widget.leftPadding,
+            initialValue: widget.initialValue,
+            sapacingValue: widget.sapacingValue,
+            textInputType: widget.textInputType,
+            onPressedIcon: widget.onPressedIcon,
+            activateError: widget.activateError,
+            textInputAction: widget.textInputAction,
+            onEditingComplete: widget.onEditingComplete,
+
+          )
         ),
       ],
     );

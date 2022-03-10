@@ -3,21 +3,21 @@ import 'colors.dart';
 
 ThemeData defaultTheme() => ThemeData(
   fontFamily: "Ubuntu" ,
-  primaryColor: ProjectColors().primary,
+  primaryColor: ProjectColors.primary,
   colorScheme: ColorScheme(
-    brightness:   Brightness.light,
-    primary:      ProjectColors().primary,
-    onPrimary:    ProjectColors().secondary,
-    secondary:    ProjectColors().darkPrimary,
-    onSecondary:  ProjectColors().secondary,
-    background:   ProjectColors().secondary,
-    onBackground: ProjectColors().darkPrimary,
-    error:      Colors.red,
-    onError:    Colors.black,
-    surface:      ProjectColors().darkPrimary,
-    onSurface:    ProjectColors().secondary,
-    tertiary:     ProjectColors().lightPrimary,
-    tertiaryContainer: ProjectColors().darkSecondary
+    brightness:        Brightness.light,
+    primary:           ProjectColors.primary,
+    onPrimary:         ProjectColors.secondary,
+    secondary:         ProjectColors.darkPrimary,
+    onSecondary:       ProjectColors.secondary,
+    background:        ProjectColors.secondary,
+    onBackground:      ProjectColors.darkPrimary,
+    error:             ProjectColors.error,
+    onError:           ProjectColors.darkPrimary,
+    surface:           ProjectColors.darkPrimary,
+    onSurface:         ProjectColors.secondary,
+    tertiary:          ProjectColors.lightPrimary,
+    tertiaryContainer: ProjectColors.darkSecondary
   ),
   textTheme: const TextTheme(
     headline1:  TextStyle(fontSize: 45, fontFamily: "Lobster", fontWeight: FontWeight.w900, color: Colors.black),
@@ -28,7 +28,7 @@ ThemeData defaultTheme() => ThemeData(
     
   ),
   primaryIconTheme: IconThemeData(
-    color: ProjectColors().darkPrimary,
+    color: ProjectColors.darkPrimary,
     size: 25
   )
 );

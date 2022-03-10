@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DefaultButton extends StatefulWidget {
-  const DefaultButton({ Key? key, this.width, required this.text, required this.onPressed, this.color }) : super(key: key);
+class ButtonDefault extends StatefulWidget {
+  const ButtonDefault({ Key? key, this.width, required this.text, required this.onPressed, this.color }) : super(key: key);
 
   final String         text;
   final VoidCallback? onPressed;
@@ -11,10 +11,10 @@ class DefaultButton extends StatefulWidget {
 
 
   @override
-  _DefaultButtonState createState() => _DefaultButtonState();
+  _ButtonDefaultState createState() => _ButtonDefaultState();
 }
 
-class _DefaultButtonState extends State<DefaultButton> {
+class _ButtonDefaultState extends State<ButtonDefault> {
   @override
   Widget build(BuildContext context) {
     final double _width = MediaQuery.of(context).size.width;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class DefaultFormField extends StatefulWidget {
-  const DefaultFormField({ 
+class FormDefault extends StatefulWidget {
+  const FormDefault({ 
     Key? key,
     this.label,
     this.onPressedIcon,
@@ -66,10 +66,10 @@ class DefaultFormField extends StatefulWidget {
   final TextInputAction textInputAction;
 
   @override
-  _DefaultFormFieldState createState() => _DefaultFormFieldState();
+  _FormDefaultState createState() => _FormDefaultState();
 }
 
-class _DefaultFormFieldState extends State<DefaultFormField> {
+class _FormDefaultState extends State<FormDefault> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -89,10 +89,16 @@ class _DefaultFormFieldState extends State<DefaultFormField> {
           filled: true,
           fillColor: Theme.of(context).colorScheme.tertiaryContainer,
           icon: widget.icon != null ? IconButton(
-            icon: Icon(widget.icon),
+            icon: Icon(
+              widget.icon,
+              color: Theme.of(context).iconTheme.color,
+              size: 30,
+            ),
             onPressed: widget.onPressedIcon,
           ) : null,
           errorText: widget.activateError ? widget.errorText : null,
+          errorMaxLines: 2,
+          
           suffixIcon: widget.suffixIcon,
           prefixIcon: widget.prefixIcon,
           contentPadding: widget.maxLines == 1
@@ -113,7 +119,7 @@ class _DefaultFormFieldState extends State<DefaultFormField> {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.radiusValue),
               borderSide:
-                BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 1)),
+                BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 3)),
           
           errorBorder:
             OutlineInputBorder(

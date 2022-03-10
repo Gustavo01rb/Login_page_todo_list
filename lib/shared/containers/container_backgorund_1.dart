@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ContainerTopRounded extends StatelessWidget {
-  const ContainerTopRounded({ 
+class ContainerBackground1 extends StatelessWidget {
+  const ContainerBackground1({ 
     Key? key, 
-    this.width,
     this.height,
     this.color,
+    this.width    = double.infinity,
     this.maxWidth = double.infinity,
     this.maxHeght = double.infinity,
-    this.radius = 30,
+    this.radius   = 30,
     this.child,
-
+    this.borderRadius
   }) : super(key: key);
   
   final double? width;
@@ -20,6 +20,7 @@ class ContainerTopRounded extends StatelessWidget {
   final double  maxWidth;
   final double  maxHeght; 
   final Widget? child;
+  final BorderRadiusGeometry? borderRadius;
 
   @override 
   Widget build(BuildContext context) {
@@ -34,10 +35,7 @@ class ContainerTopRounded extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         color: color ?? Theme.of(context).colorScheme.background,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(radius),
-          topLeft: Radius.circular(radius)
-        ),
+        borderRadius: borderRadius ?? BorderRadius.circular(radius),
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).colorScheme.background.withOpacity(0.6),

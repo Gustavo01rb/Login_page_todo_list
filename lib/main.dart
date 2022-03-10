@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'dart:io' show Platform;
-import 'core/android_core.dart' as androidplatform;
+import 'package:todolist_flutter/core/app_firebase.dart';
 
-void main(){
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp( androidplatform.MyApp() );
+  runApp(AppFirebase());
 }
-

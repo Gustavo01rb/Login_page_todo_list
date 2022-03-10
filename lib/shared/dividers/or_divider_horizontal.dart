@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OrDivider extends StatelessWidget {
-  const OrDivider({ Key? key, this.text = "ou" }) : super(key: key);
+class OrDividerHorizontal extends StatelessWidget {
+  const OrDividerHorizontal({ Key? key, this.text = "ou" }) : super(key: key);
   final String text;
 
   @override

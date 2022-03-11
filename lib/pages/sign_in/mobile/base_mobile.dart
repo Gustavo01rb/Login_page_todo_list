@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist_flutter/pages/sign_in/components/mobile_animated_logo.dart';
 import 'package:todolist_flutter/pages/sign_in/components/mobile_sign_in.dart';
+import 'package:todolist_flutter/pages/sign_in/components/mobile_sign_up.dart';
 import 'package:todolist_flutter/pages/sign_in/mobile/animation.dart';
 import 'package:provider/provider.dart';
 import 'package:todolist_flutter/service/service_sign_in.dart';
@@ -48,7 +49,9 @@ class _BaseMobileSignInState extends State<BaseMobileSignIn>
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30),
                         ),
-                        child: ComponentMobileSignIn(switchPages: () => _switchPages(context)),
+                        child: Provider.of<ServiceSignIn>(context, listen: true).isLogin
+                        ? ComponentMobileSignIn(switchPages: () => _switchPages(context))
+                        : ComponentMobileSignUp(switchPages: ()=>  _switchPages(context),),
                       ),
                     )
                   ],

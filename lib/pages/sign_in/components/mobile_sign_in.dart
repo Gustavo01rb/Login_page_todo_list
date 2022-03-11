@@ -40,7 +40,7 @@ class _ComponentMobileSignInState extends State<ComponentMobileSignIn> {
                 children: [
                   FormDefaultWithText(
                     titleText: "Nome de usuário", 
-                    validator: FormsValidators().validateUserName,
+                    validator: FormsValidators.validateUserName,
                     hint: "ex: Chapolin_123",
                     controller: Provider.of<ServiceSignIn>(context, listen: false).controllerUserName,
                     leftPadding: 20,
@@ -49,7 +49,7 @@ class _ComponentMobileSignInState extends State<ComponentMobileSignIn> {
                   const SizedBox(height: 20,),
                   FormDefaultWithText(
                     titleText: "Senha",
-                    validator: FormsValidators().validatePassword,
+                    validator: FormsValidators.validatePassword,
                     controller: Provider.of<ServiceSignIn>(context, listen: false).controllerPassword,
                     icon: ProjectIcons.key,
                     obscure: !_passwordVisible,

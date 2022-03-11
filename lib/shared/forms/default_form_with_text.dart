@@ -54,10 +54,10 @@ class FormDefaultWithText extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
 
-  final Function? onTap;
+  final VoidCallback? onTap;
   final Function(String?)? onSaved;
-  final Function? onEditingComplete;
-  final void Function()? onPressedIcon;
+  final VoidCallback? onEditingComplete;
+  final VoidCallback? onPressedIcon;
   final String? Function(String?)? validator;
 
   final int maxLines;

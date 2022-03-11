@@ -51,10 +51,10 @@ class FormDefault extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
 
-  final Function? onTap;
+  final VoidCallback? onTap;
   final Function(String?)? onSaved;
-  final Function? onEditingComplete;
-  final void Function()? onPressedIcon;
+  final VoidCallback? onEditingComplete;
+  final VoidCallback? onPressedIcon;
   final String? Function(String?)? validator;
 
   final int maxLines;
@@ -74,8 +74,8 @@ class _FormDefaultState extends State<FormDefault> {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: widget.onSaved,
-      onTap: () => widget.onTap != null ? widget.onTap!() : null,
-      onEditingComplete: () => widget.onEditingComplete != null ? widget.onEditingComplete!() : null,
+      onTap: widget.onTap,
+      onEditingComplete: widget.onEditingComplete,
       controller: widget.controller,
       inputFormatters: widget.mask == null ? [] : [widget.mask!],
       initialValue: widget.initialValue,
@@ -98,7 +98,6 @@ class _FormDefaultState extends State<FormDefault> {
           ) : null,
           errorText: widget.activateError ? widget.errorText : null,
           errorMaxLines: 2,
-          
           suffixIcon: widget.suffixIcon,
           prefixIcon: widget.prefixIcon,
           contentPadding: widget.maxLines == 1
@@ -119,14 +118,19 @@ class _FormDefaultState extends State<FormDefault> {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.radiusValue),
               borderSide:
-                BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 3)),
+                BorderSide(color: widget.borderColor ?? Theme.of(context).colorScheme.secondary, width: 1.5)),
           
           errorBorder:
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.radiusValue),
               borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.error, width: 1),
-            ),
+              BorderSide(color: Theme.of(context).colorScheme.error, width: 1)),
+          
+          focusedErrorBorder:
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(widget.radiusValue),
+              borderSide:
+              BorderSide(color: Theme.of(context).colorScheme.error, width: 1)),
           ),
       );
   }

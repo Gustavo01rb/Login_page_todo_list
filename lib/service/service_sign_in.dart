@@ -24,11 +24,9 @@ class ServiceSignIn extends ChangeNotifier{
   }
 
   void onButtonLoginPressed(){
-    if(formKeySignIn.currentState!.validate())
-      print("Funfa");
+    if(formKeySignIn.currentState!.validate()){}
   }
   void onButtonSiginUpPressed(){
-    if(formKeySignUp.currentState!.validate())
-      print("Funfa");
+    if(formKeySignUp.currentState!.validate()){}
   }
 }
